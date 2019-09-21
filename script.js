@@ -2,9 +2,7 @@
 
 const e = React.createElement;
 
-
 class RandomQuotesMachine extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {authorIndex: 0, 
@@ -20,23 +18,16 @@ class RandomQuotesMachine extends React.Component {
   componentDidMount() {
     fetch("https://raw.githubusercontent.com/oujlassi/json-quotes/master/quotes-by-author.json")
       .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            quotesStore: result.quotesStore
-          });
-        },
+      .then( (result) => { this.setState({isLoaded: true,
+                                         quotesStore: result.quotesStore });
+                         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
         // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+            (error) => { this.setState({ isLoaded: true,
+                                        error});
+                       }
+          )
   }
 
 render(){
@@ -57,13 +48,13 @@ render(){
                                    e("a", {href: href, target: "_blank"}, 
                                      e("button", {id: "tweet-quote", className: "fab fa-twitter btn btn-info "}, null)
                                     ),
-                                     e("button", {id: "new-quote", onClick: this.handleNewQuoteClick, className: "btn btn-info"}, e("span", {className: "fas fa-angle-double-right "},null))
+                                   e("button", {id: "new-quote", onClick: this.handleNewQuoteClick, className: "btn btn-info"},
+                                      e("span", {className: "fas fa-angle-double-right "},null)
+                                    )
             );
   }
-
 }
 }
-
 
 const domContainer = document.querySelector('#quote-box');
 ReactDOM.render(e(RandomQuotesMachine), domContainer);
