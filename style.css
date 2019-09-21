@@ -1,0 +1,38 @@
+body {
+  background-color: silver;
+}
+#quote-box {
+position: relative;
+top: 150px;
+width: 80%;
+margin: auto;
+padding: 100px 10px 100px 10px !important ; 
+}
+#text {
+font-size: 1.5em;
+text-transform: capitalize;
+
+
+}
+#author {
+position: absolute;
+right: 5px;
+font-style: italic;
+font-size:  1em;
+text-transform: capitalize;
+
+}
+#new-quote {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+#tweet-quote {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+#quote-left {
+    font-size:1.5em;
+    margin-right: 0.5em;
+}
